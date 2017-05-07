@@ -46,7 +46,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
 <channel>
 <title><?php echo BLOG_TITLE; ?></title>
 <link><?php echo BASE_URL; ?></link>
-<atom:link href="<?php echo BLOG_ADDR; ?>kkeun.rss" rel="self"
+<atom:link href="<?php echo BASE_URL.'rss'; ?>" rel="self"
            type="application/rss+xml" />
 <description><?php echo BLOG_DESC; ?></description>
 <?php foreach(last_ten() as $v): ?>

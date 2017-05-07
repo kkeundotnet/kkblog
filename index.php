@@ -10,7 +10,7 @@ require_once(__SRC__.'/rss.php');
 
 function is_rss($query)
 {
-    return count($query) === 1 && $query[0] === "rss.php";
+    return count($query) === 1 && $query[0] === "rss";
 }
 
 function is_main($query)
@@ -32,7 +32,7 @@ function is_not_safe($query)
 {
     foreach($query as $s)
     {
-        if(preg_match('/../', $s) || preg_match('/~/', $s))
+        if(preg_match('/\.\./', $s) || preg_match('/~/', $s))
         {
             return true;
         }
@@ -48,7 +48,7 @@ function route()
 
     if(is_not_safe($query))
     {
-        \page\echo_not_found($query);
+        \page\echo_not_found();
         return;
     }
 
@@ -70,7 +70,7 @@ function route()
     }
     else
     {
-        \page\echo_not_found($query);
+        \page\echo_not_found();
     }
 }
 
