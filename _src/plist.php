@@ -18,12 +18,12 @@ function echoo($c_selected=null)
     if(is_null($c_selected))
     {
         $ps = glob(__POST__.'/*/*.md');
+        $ps = array_filter($ps, '\plist\is_not_draft');
     }
     else
     {
         $ps = glob(__POST__.'/'.$c_selected.'/*.md');
     }
-    $ps = array_filter($ps, '\plist\is_not_draft');
     usort($ps, '\plist\cmp_post');
 ?>
 <ul class="plist-ul">
@@ -33,7 +33,7 @@ function echoo($c_selected=null)
 $c_name = basename(dirname($p));
 $p_name = substr(basename($p), 0, -3);
 $p_link = BASE_URL.$c_name.'/'.$p_name;
-$p_title = trim(shell_exec("head -n 1 $p"));
+$p_title = htmlspecialchars(trim(shell_exec("head -n 1 $p")));
 $p_date = substr($p_name, 0, 10);
 ?>
 <span class="plist-title">

@@ -8,41 +8,42 @@ require_once(__SRC__.'/plist.php');
 require_once(__SRC__.'/footer.php');
 require_once(__MD__.'/Michelf/MarkdownExtra.inc.php');
 
-function echo_not_found()
-{
-    header('HTTP/1.0 404 Not Found');
-?>
+function page_header($t_sub=NULL, $c_name=NULL)
+{ ?>
 <html lang="ko">
 <head>
-<?php \header\echoo(); ?>
+<?php \header\echoo($t_sub); ?>
 </head>
 <body>
 <?php \title\echoo(); ?>
-<?php \clist\echoo(); ?>
+<?php \clist\echoo($c_name); ?>
 <hr>
-<p class="caution">404 Page not found.</p>
+<?php }
+
+function page_footer()
+{ ?>
 <hr>
 <?php \footer\echoo(); ?>
 </body>
 </html>
 <?php }
 
+function echo_not_found()
+{
+    header('HTTP/1.0 404 Not Found');
+    page_header();
+?>
+<p class="caution">404 Page not found.</p>
+<?php
+    page_footer();
+}
+
 function echo_main()
-{ ?>
-<html lang="ko">
-<head>
-<?php \header\echoo(); ?>
-</head>
-<body>
-<?php \title\echoo(); ?>
-<?php \clist\echoo(); ?>
-<hr>
-<?php \plist\echoo(); ?>
-<hr>
-<?php \footer\echoo(); ?>
-</body>
-</html>
-<?php }
+{
+    page_header();
+    \plist\echoo();
+    page_footer();
+}
 
 function echo_category($c_name)
 {
@@ -51,41 +52,27 @@ function echo_category($c_name)
         echo_not_found();
         return;
     }
-?>
-<html lang="ko">
-<head>
-<?php \header\echoo($c_name); ?>
-</head>
-<body>
-<?php \title\echoo(); ?>
-<?php \clist\echoo($c_name); ?>
-<hr>
-<?php \plist\echoo($c_name); ?>
-<hr>
-<?php \footer\echoo(); ?>
-</body>
-</html>
-<?php }
+    page_header($c_name, $c_name);
+    \plist\echoo($c_name);
+    page_footer();
+}
 
 function echo_post($c_name, $p_name)
 {
     $p = __POST__.'/'.$c_name.'/'.$p_name.'.md';
+    if(!file_exists($p))
+    {
+        echo_not_found();
+        return;
+    }
     $contents = file_get_contents($p);
     $p_date = substr($p_name, 0, 10);
-    $p_title = trim(shell_exec("head -n 1 $p"));
+    $p_title = htmlspecialchars(trim(shell_exec("head -n 1 $p")));
+
+    page_header($p_title, $c_name);
+    echo \Michelf\MarkdownExtra::defaultTransform($contents);
 ?>
-<html lang="ko">
-<head>
-<?php \header\echoo($p_title); ?>
-</head>
-<body>
-<?php \title\echoo(); ?>
-<?php \clist\echoo($c_name); ?>
-<hr>
-<?php echo \Michelf\MarkdownExtra::defaultTransform($contents); ?>
-<p class="p-date"><?php echo $p_date; ?> 씀.</p>
-<hr>
-<?php \footer\echoo(); ?>
-</body>
-</html>
-<?php }
+    <p class="p-date"><?php echo $p_date; ?> 씀.</p>
+<?php
+    page_footer();
+}
