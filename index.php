@@ -6,6 +6,12 @@ define('__MD__', __ROOT__.'/php-markdown');
 
 require_once(__ROOT__.'/config.php');
 require_once(__SRC__.'/page.php');
+require_once(__SRC__.'/rss.php');
+
+function is_rss($query)
+{
+    return count($query) === 1 && $query[0] === "rss.php";
+}
 
 function is_main($query)
 {
@@ -28,7 +34,11 @@ function route()
     $query = split('/', $query);
     $query = array_filter($query, function($v){ return !empty($v); });
 
-    if(is_main($query))
+    if(is_rss($query))
+    {
+        \rss\echoo();
+    }
+    else if(is_main($query))
     {
         \page\echo_main();
     }
