@@ -8,7 +8,9 @@
 
 1.  git clone
 
-2.  `config.php` 수정
+2.  `./configure` 실행
+
+3.  `config.php` 수정
 
     *   `BLOG_TITLE`: 블로그 제목
     *   `BLOG_DESC`: 짧은 블로그 설명
