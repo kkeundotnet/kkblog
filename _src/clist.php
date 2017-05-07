@@ -15,7 +15,7 @@ function echo_selected($c_name, $c_selected)
 {
     if($c_name === $c_selected)
     {
-        echo "selected";
+        echo "clist-selected";
     }
 }
 

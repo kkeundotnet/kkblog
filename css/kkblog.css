@@ -1,22 +1,33 @@
-.clist-ul
+.clist-ul, .plist-ul
 {
+    list-style-type: none;
+    padding: 0;
 }
 
 .clist-li
 {
+    display: inline;
 }
 
-.clist-li.selected
+.clist-li:not(:first-child):before
+{
+    content: ' | ';
+}
+
+.clist-selected
 {
     font-weight: bold;
 }
 
-.plist-ul
-{
-}
-
 .plist-li
 {
+    margin: 10px 0;
+}
+
+.plist-date
+{
+    font-size: small;
+    color: lightgray;
 }
 
 .p-date
@@ -33,4 +44,29 @@
 {
     color: red;
     font-weight: bold;
+}
+
+img
+{
+    max-width: 100%;
+}
+
+.w300
+{
+    width: 300px;
+}
+
+.w400
+{
+    width: 400px;
+}
+
+.w500
+{
+    width: 500px;
+}
+
+.w600
+{
+    width: 600px;
 }

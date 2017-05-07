@@ -4,6 +4,6 @@ namespace footer;
 function echoo()
 { ?>
 <div class="footer">
-<?php echo BLOG_TITLE; ?> | 2017
+<p><?php echo BLOG_TITLE; ?> | 2017</p>
 </div>
 <?php }
