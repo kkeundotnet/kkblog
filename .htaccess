@@ -1,7 +1,4 @@
 RewriteEngine On
 
-#RewriteCond %{HTTP_HOST} ^kkeun.net$
-#RewriteRule ^(.*)$ https://blog.kkeun.net/$1 [L,R,NE]
-
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php?q=$1 [L]
