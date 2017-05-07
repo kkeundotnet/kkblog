@@ -77,7 +77,7 @@ function echo_post($c_name, $p_name)
 <?php
     if(ENABLE_DISQUS)
     {
-        \disqus\echoo();
+        \disqus\echoo($c_name, $p_name);
     }
     page_footer();
 }

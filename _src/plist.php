@@ -10,7 +10,7 @@ function cmp_post($p1, $p2)
 {
     $p1 = basename($p1);
     $p2 = basename($p2);
-    return strcmp($p1, $p2);
+    return strcmp($p2, $p1);
 }
 
 function echoo($c_selected=null)

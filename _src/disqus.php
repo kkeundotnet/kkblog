@@ -17,7 +17,7 @@ this.page.identifier = '<?php echo $c_name.'/'.$p_name; ?>'; // Replace PAGE_IDE
 
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
-s.src = 'https://EXAMPLE.disqus.com/embed.js';
+s.src = 'https://<?php echo DISQUS_ID; ?>.disqus.com/embed.js';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
