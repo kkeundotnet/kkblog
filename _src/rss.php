@@ -28,7 +28,7 @@ function gen_info($p)
     return $info;
 }
 
-function last_ten()
+function last_five()
 {
     $ps = glob(__POST__.'/*/*.md');
     $ps = array_filter($ps, '\plist\is_not_draft');
@@ -49,7 +49,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
 <atom:link href="<?php echo BASE_URL.'rss'; ?>" rel="self"
            type="application/rss+xml" />
 <description><?php echo BLOG_DESC; ?></description>
-<?php foreach(last_ten() as $v): ?>
+<?php foreach(last_five() as $v): ?>
 <item>
 <title><?php echo $v["title"]; ?></title>
 <link><?php echo $v["link"]; ?></link>
