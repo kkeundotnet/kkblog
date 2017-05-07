@@ -1,4 +1,3 @@
 <?php
-
-BLOG_TITLE="kkblog";
-BASE_URL="https://kkeun.net/kkblog/";
+define('BLOG_TITLE', "kkblog");
+define('BASE_URL', "https://kkeun.net/kkblog/");
