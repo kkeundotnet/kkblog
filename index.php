@@ -28,11 +28,29 @@ function is_post($query)
     return count($query) === 2;
 }
 
+function is_not_safe($query)
+{
+    foreach($query as $s)
+    {
+        if(preg_match('/../', $s) || preg_match('/~/', $s))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 function route()
 {
     $query = $_REQUEST['q'];
     $query = split('/', $query);
     $query = array_filter($query, function($v){ return !empty($v); });
+
+    if(is_not_safe($query))
+    {
+        \page\echo_not_found($query);
+        return;
+    }
 
     if(is_rss($query))
     {
