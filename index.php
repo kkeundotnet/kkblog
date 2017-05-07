@@ -2,6 +2,7 @@
 define('__ROOT__', dirname(__FILE__));
 define('__SRC__', __ROOT__.'/_src');
 define('__POST__', __ROOT__.'/_post');
+define('__MD__', __ROOT__.'/php-markdown');
 
 require_once(__ROOT__.'/config.php');
 require_once(__SRC__.'/page.php');
@@ -33,11 +34,11 @@ function route()
     }
     else if(is_category($query))
     {
-        \page\echo_category($query);
+        \page\echo_category($query[0]);
     }
-    else if(is_echo_post($query))
+    else if(is_post($query))
     {
-        \page\echo_post($query);
+        \page\echo_post($query[0], $query[1]);
     }
     else
     {

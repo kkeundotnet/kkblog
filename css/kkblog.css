@@ -6,6 +6,11 @@
 {
 }
 
+.clist-li.selected
+{
+    font-weight: bold;
+}
+
 .plist-ul
 {
 }
@@ -14,7 +19,18 @@
 {
 }
 
+.p-date
+{
+    font-style: italic;
+}
+
 .footer
 {
     font-size: small;
+}
+
+.caution
+{
+    color: red;
+    font-weight: bold;
 }

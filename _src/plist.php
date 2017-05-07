@@ -13,9 +13,16 @@ function cmp_post($p1, $p2)
     return strcmp($p1, $p2);
 }
 
-function echoo()
+function echoo($c_selected=null)
 {
-    $ps = glob(__POST__.'/*/*.md');
+    if(is_null($c_selected))
+    {
+        $ps = glob(__POST__.'/*/*.md');
+    }
+    else
+    {
+        $ps = glob(__POST__.'/'.$c_selected.'/*.md');
+    }
     $ps = array_filter($ps, '\plist\is_not_draft');
     usort($ps, '\plist\cmp_post');
 ?>
