@@ -1,6 +1,8 @@
 <?php
 namespace rss;
 
+require_once(__SRC__.'/plist.php');
+
 /* Remove <script> from html
    CAUTION: This is a bad solution.  Read,
    http://stackoverflow.com/questions/7130867/remove-script-tag-from-html-content */
@@ -17,7 +19,7 @@ function remove_non_rss($html)
 function gen_info($p)
 {
     $info = array();
-    $info['title'] = htmlspecialchars(trim(shell_exec("head -n 1 $p")));
+    $info['title'] = \plist\get_title($p);
     $c_name = basename(dirname($p));
     $p_name = substr(basename($p), 0, -3);
     $info['link'] = BASE_URL.$c_name.'/'.$p_name;

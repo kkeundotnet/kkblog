@@ -68,7 +68,7 @@ function echo_post($c_name, $p_name)
     }
     $contents = file_get_contents($p);
     $p_date = substr($p_name, 0, 10);
-    $p_title = htmlspecialchars(trim(shell_exec("head -n 1 $p")));
+    $p_title = \plist\get_title($p);
 
     page_header($p_title, $c_name);
     echo \Michelf\MarkdownExtra::defaultTransform($contents);

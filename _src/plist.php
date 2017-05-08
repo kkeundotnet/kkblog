@@ -13,6 +13,11 @@ function cmp_post($p1, $p2)
     return strcmp($p2, $p1);
 }
 
+function get_title($p)
+{
+    return htmlspecialchars(trim(shell_exec("head -n 1 $p")));
+}
+
 function echoo($c_selected=null)
 {
     if(is_null($c_selected))
@@ -33,7 +38,7 @@ function echoo($c_selected=null)
 $c_name = basename(dirname($p));
 $p_name = substr(basename($p), 0, -3);
 $p_link = BASE_URL.$c_name.'/'.$p_name;
-$p_title = htmlspecialchars(trim(shell_exec("head -n 1 $p")));
+$p_title = get_title($p);
 $p_date = substr($p_name, 0, 10);
 ?>
 <span class="plist-title">
