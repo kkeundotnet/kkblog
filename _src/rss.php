@@ -22,7 +22,16 @@ function gen_info($p)
     $p_name = substr(basename($p), 0, -3);
     $info['link'] = BASE_URL_S.$c_name.'/'.$p_name;
     $contents = file_get_contents($p);
-    $contents = implode("\n", array_slice(explode("\n", $contents), 2));
+    if(substr($contents, 0, 1) === "#")
+    {
+        $title_lines = 1;
+    }
+    else
+    {
+        $title_lines = 2;
+    }
+    $contents = array_slice(explode("\n", $contents), $title_lines);
+    $contents = implode("\n", $contents);
 
     $info['contents'] = \Michelf\MarkdownExtra::defaultTransform($contents);
     return $info;
