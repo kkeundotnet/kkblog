@@ -1,14 +1,6 @@
 <?php
 namespace page;
 
-require_once(__SRC__.'/header.php');
-require_once(__SRC__.'/title.php');
-require_once(__SRC__.'/clist.php');
-require_once(__SRC__.'/plist.php');
-require_once(__SRC__.'/footer.php');
-require_once(__SRC__.'/disqus.php');
-require_once(__MD__.'/Michelf/MarkdownExtra.inc.php');
-
 function page_header($t_sub=NULL, $c_name=NULL)
 { ?>
 <html lang="ko">

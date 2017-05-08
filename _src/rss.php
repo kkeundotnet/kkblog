@@ -1,8 +1,6 @@
 <?php
 namespace rss;
 
-require_once(__SRC__.'/plist.php');
-
 /* Remove <script> from html
    CAUTION: This is a bad solution.  Read,
    http://stackoverflow.com/questions/7130867/remove-script-tag-from-html-content */

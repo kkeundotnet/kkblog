@@ -15,6 +15,13 @@ else
     define('BASE_URL_S', BASE_URL.'/');
 }
 
+require_once(__MD__.'/Michelf/MarkdownExtra.inc.php');
+require_once(__SRC__.'/header.php');
+require_once(__SRC__.'/title.php');
+require_once(__SRC__.'/clist.php');
+require_once(__SRC__.'/plist.php');
+require_once(__SRC__.'/footer.php');
+require_once(__SRC__.'/disqus.php');
 require_once(__SRC__.'/page.php');
 require_once(__SRC__.'/rss.php');
 
