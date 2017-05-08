@@ -15,7 +15,7 @@ function cmp_post($p1, $p2)
 
 function get_title($p)
 {
-    return htmlspecialchars(trim(shell_exec("head -n 1 $p")));
+    return htmlspecialchars(trim(shell_exec("head -n 1 \"$p\"")));
 }
 
 function echoo($c_selected=null)
