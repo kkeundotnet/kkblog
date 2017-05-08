@@ -43,7 +43,7 @@ function is_not_safe($query)
 function route()
 {
     $query = $_REQUEST['q'];
-    $query = split('/', $query);
+    $query = preg_split('/', $query);
     $query = array_filter($query, function($v){ return !empty($v); });
 
     if(is_not_safe($query))
