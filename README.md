@@ -14,8 +14,7 @@
 
     *   `BLOG_TITLE`: 블로그 제목
     *   `BLOG_DESC`: 짧은 블로그 설명
-    *   `BASE_URL`: 블로그 사이트 주소  
-        **반드시 `/`로 끝나야 함.** (예) `https://kkeun.net/kkblog/`
+    *   `BASE_URL`: 블로그 사이트 주소
     *   `ENABLE_DISQUS`: [Disqus][disqus] 댓글 사용 여부
     *   `DISQUS_ID`: [Disqus][disqus] 아이디
 

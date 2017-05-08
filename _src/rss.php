@@ -22,7 +22,7 @@ function gen_info($p)
     $info['title'] = \plist\get_title($p);
     $c_name = basename(dirname($p));
     $p_name = substr(basename($p), 0, -3);
-    $info['link'] = BASE_URL.$c_name.'/'.$p_name;
+    $info['link'] = BASE_URL_S.$c_name.'/'.$p_name;
     $contents = file_get_contents($p);
     $contents = implode("\n", array_slice(explode("\n", $contents), 2));
 
@@ -47,8 +47,8 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 <title><?php echo BLOG_TITLE; ?></title>
-<link><?php echo BASE_URL; ?></link>
-<atom:link href="<?php echo BASE_URL.'rss'; ?>" rel="self"
+<link><?php echo BASE_URL_S; ?></link>
+<atom:link href="<?php echo BASE_URL_S.'rss'; ?>" rel="self"
            type="application/rss+xml" />
 <description><?php echo BLOG_DESC; ?></description>
 <?php foreach(last_five() as $v): ?>

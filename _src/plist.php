@@ -37,7 +37,7 @@ function echoo($c_selected=null)
 <?php
 $c_name = basename(dirname($p));
 $p_name = substr(basename($p), 0, -3);
-$p_link = BASE_URL.$c_name.'/'.$p_name;
+$p_link = BASE_URL_S.$c_name.'/'.$p_name;
 $p_title = get_title($p);
 $p_date = substr($p_name, 0, 10);
 ?>

@@ -28,7 +28,7 @@ function echoo($c_selected=null)
 <?php foreach($cs as $c): ?>
 <?php $c_name = basename($c); ?>
     <li class="clist-li <?php echo_selected($c_name, $c_selected); ?>">
-<a href="<?php echo BASE_URL.$c_name; ?>"><?php echo $c_name; ?></a>
+<a href="<?php echo BASE_URL_S.$c_name; ?>"><?php echo $c_name; ?></a>
 (<?php echo post_num_of($c); ?>)
 </li>
 <?php endforeach; ?>

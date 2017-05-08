@@ -5,6 +5,16 @@ define('__POST__', __ROOT__.'/_post');
 define('__MD__', __ROOT__.'/php-markdown');
 
 require_once(__ROOT__.'/config.php');
+
+if(substr(BASE_URL, -1) === '/')
+{
+    define('BASE_URL_S', BASE_URL);
+}
+else
+{
+    define('BASE_URL_S', BASE_URL.'/');
+}
+
 require_once(__SRC__.'/page.php');
 require_once(__SRC__.'/rss.php');
 
