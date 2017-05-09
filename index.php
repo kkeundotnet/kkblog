@@ -62,6 +62,7 @@ function route()
     $query = $_REQUEST['q'];
     $query = preg_split('/\//', $query);
     $query = array_filter($query, function($v){ return !empty($v); });
+    $query = array_values($query);
 
     if(is_not_safe($query))
     {
