@@ -3,6 +3,7 @@ namespace page;
 
 function page_header($t_sub=NULL, $c_name=NULL)
 { ?>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <?php \header\echoo($t_sub); ?>
