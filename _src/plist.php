@@ -15,7 +15,7 @@ function cmp_post($p1, $p2)
 
 function get_title($p)
 {
-    $s = trim(shell_exec("head -n 1 \"$p\""));
+    $s = trim(fgets(fopen($p, 'r')));
     if(substr($s, 0, 1) === "#")
     {
         $s = trim(substr($s, 1));
