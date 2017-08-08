@@ -11,6 +11,7 @@ function remove_non_rss($html)
 {
     $html = preg_replace('%<script.*?>.*?</script>%is', '', $html);
     $html = preg_replace('%<a href="#.*?>(.*?)</a>%is', '$1', $html);
+    $html = preg_replace('%<a href="javascript.*?>(.*?)</a>%is', '$1', $html);
     return $html;
 }
 
