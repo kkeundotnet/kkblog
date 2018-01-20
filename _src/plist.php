@@ -49,8 +49,16 @@ $p_date = substr($p_name, 0, 10);
 <span class="plist-title">
 <a href="<?php echo $p_link; ?>"><?php echo $p_title; ?></a>
 </span>
+<?php if(ENABLE_DISQUS && $c_name !== "draft"): ?>
+<span class="disqus-comment-count plist-reply"
+      data-disqus-url="<?php echo $p_link.'#disqus_thread'; ?>">
+</span>
+<?php endif; ?>
 <span class="plist-date">(<?php echo $p_date; ?>)</span>
 </li>
 <?php endforeach; ?>
 </ul>
+<?php if(ENABLE_DISQUS && $c_name !== "draft"): ?>
+    <script id="dsq-count-scr" src="//<?php echo DISQUS_ID; ?>.disqus.com/count.js" async></script>
+<?php endif; ?>
 <?php }
