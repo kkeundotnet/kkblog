@@ -16,6 +16,7 @@
     *   `BLOG_DESC`: 짧은 블로그 설명
     *   `BASE_URL`: 블로그 사이트 주소
     *   `ENABLE_DISQUS`: [Disqus][disqus] 댓글 사용 여부
+    *   `ENABLE_KKOMENT`: [꼬멘트][kkoment] 댓글 사용 여부
     *   `DISQUS_ID`: [Disqus][disqus] 아이디
 
 글 쓰기
@@ -64,4 +65,5 @@
 이 프로그램은 퍼블릭 도메인으로 공개됩니다.
 
 [disqus]: https://disqus.com/
+[kkoment]: https://kkoment.kkeun.net/
 [markdown]: https://michelf.ca/projects/php-markdown/extra/
