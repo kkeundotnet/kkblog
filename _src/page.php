@@ -68,9 +68,13 @@ function echo_post($c_name, $p_name)
 ?>
     <p class="p-date"><?php echo $p_date; ?> 씀.</p>
 <?php
-    if(ENABLE_DISQUS && $c_name !== "draft")
-    {
-        \disqus\echoo($c_name, $p_name);
+    if ($c_name !== "draft") {
+        if(ENABLE_DISQUS) {
+            \disqus\echoo($c_name, $p_name);
+        }
+        if(ENABLE_KKOMENT) {
+            \kkoment\echoo($c_name, $p_name);
+        }
     }
     page_footer();
 }

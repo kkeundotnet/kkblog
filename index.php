@@ -9,10 +9,12 @@ require_once(__ROOT__.'/config.php');
 if(substr(BASE_URL, -1) === '/')
 {
     define('BASE_URL_S', BASE_URL);
+    define('BASE_URL_NO_S', rtrim(BASE_URL, '/'));
 }
 else
 {
     define('BASE_URL_S', BASE_URL.'/');
+    define('BASE_URL_NO_S', BASE_URL);
 }
 
 require_once(__MD__.'/Michelf/MarkdownExtra.inc.php');
@@ -22,6 +24,7 @@ require_once(__SRC__.'/clist.php');
 require_once(__SRC__.'/plist.php');
 require_once(__SRC__.'/footer.php');
 require_once(__SRC__.'/disqus.php');
+require_once(__SRC__.'/kkoment.php');
 require_once(__SRC__.'/page.php');
 require_once(__SRC__.'/rss.php');
 
