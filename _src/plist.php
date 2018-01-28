@@ -72,9 +72,11 @@ $p_date = substr($p_name, 0, 10);
 <?php endif; ?>
 
 <?php if(KKOMENT_DISQUS && $c_name !== "draft"): ?>
-<script>kkoment_load_n("<?php echo BASE_URL ?>", function(n){
-    if(n) {
-        return "["+n+"]";
+<script>kkoment_load_n("<?php echo BASE_URL ?>", function(num){
+    if (num["recent"]) {
+        return "<span class='recent'>[" + num["n"] + "]</span>";
+    } else if (num["n"] != 0) {
+        return "[" + num["n"] + "]";
     } else {
         return "";
     }});
