@@ -56,7 +56,7 @@ $p_date = substr($p_name, 0, 10);
 </span>
 <?php endif; ?>
 
-<?php if(KKOMENT_DISQUS && $c_name !== "draft"): ?>
+<?php if(ENABLE_KKOMENT && $c_name !== "draft"): ?>
 <span class="kkoment-num plist-reply"
       data-kkoment-thread-id="<?php echo $c_name.'/'.$p_name; ?>">
 </span>
@@ -71,7 +71,7 @@ $p_date = substr($p_name, 0, 10);
     <script id="dsq-count-scr" src="//<?php echo DISQUS_ID; ?>.disqus.com/count.js" async></script>
 <?php endif; ?>
 
-<?php if(KKOMENT_DISQUS && $c_name !== "draft"): ?>
+<?php if(ENABLE_KKOMENT && $c_name !== "draft"): ?>
 <script>kkoment_load_n("<?php echo BASE_URL ?>", function(num){
     if (num["recent"]) {
         return "<span class='recent'>[" + num["n"] + "]</span>";
