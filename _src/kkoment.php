@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
+
 namespace kkoment;
 
-function echoo($c_name, $p_name)
+function echoo(string $c_name, string $p_name): void
 { ?>
 <hr>
 <div id="kkoment-div"></div>

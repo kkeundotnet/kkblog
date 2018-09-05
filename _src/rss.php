@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace rss;
 
 /* Remove <script> from html
@@ -7,7 +9,7 @@ namespace rss;
 
 /* NOTE: http://php.net/manual/en/pcre.pattern.php */
 
-function remove_non_rss($html)
+function remove_non_rss(string $html): string
 {
     $html = preg_replace('%<script.*?>.*?</script>%is', '', $html);
     $html = preg_replace('%<a href="#.*?>(.*?)</a>%is', '$1', $html);
@@ -15,7 +17,7 @@ function remove_non_rss($html)
     return $html;
 }
 
-function gen_info($p)
+function gen_info(string $p): array
 {
     $info = array();
     $info['title'] = \plist\get_title($p);
@@ -38,7 +40,7 @@ function gen_info($p)
     return $info;
 }
 
-function last_five()
+function last_five(): array
 {
     $ps = glob(__POST__.'/*/*.md');
     $ps = array_filter($ps, '\plist\is_not_draft');
@@ -47,7 +49,7 @@ function last_five()
     return array_map('\rss\gen_info', $ps);
 }
 
-function echoo()
+function echoo(): void
 {
 header('Content-Type: application/rss+xml; charset=UTF-8');
 echo '<?xml version="1.0" encoding="UTF-8" ?>';

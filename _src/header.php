@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
+
 namespace header;
 
-function echoo($t_sub=NULL)
+function echoo(?string $t_sub=NULL): void
 {
 $t = BLOG_TITLE;
 if(!is_null($t_sub))

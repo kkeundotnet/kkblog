@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 define('BLOG_TITLE', "kkblog");
 define('BLOG_DESC', "ㄲ블로그");
 define('BASE_URL', "https://blog.kkeun.net/");

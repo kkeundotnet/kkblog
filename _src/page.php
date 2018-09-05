@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
+
 namespace page;
 
-function page_header($t_sub=NULL, $c_name=NULL)
+function page_header(?string $t_sub=NULL, ?string $c_name=NULL): void
 { ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -14,7 +16,7 @@ function page_header($t_sub=NULL, $c_name=NULL)
 <hr>
 <?php }
 
-function page_footer()
+function page_footer(): void
 { ?>
 <hr>
 <?php \footer\echoo(); ?>
@@ -22,7 +24,7 @@ function page_footer()
 </html>
 <?php }
 
-function echo_not_found()
+function echo_not_found(): void
 {
     header('HTTP/1.0 404 Not Found');
     page_header();
@@ -32,14 +34,14 @@ function echo_not_found()
     page_footer();
 }
 
-function echo_main()
+function echo_main(): void
 {
     page_header();
     \plist\echoo();
     page_footer();
 }
 
-function echo_category($c_name)
+function echo_category(string $c_name): void
 {
     if(!is_dir(__POST__.'/'.$c_name))
     {
@@ -51,7 +53,7 @@ function echo_category($c_name)
     page_footer();
 }
 
-function echo_post($c_name, $p_name)
+function echo_post(string $c_name, string $p_name): void
 {
     $p = __POST__.'/'.$c_name.'/'.$p_name.'.md';
     if(!file_exists($p))

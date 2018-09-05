@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 define('__ROOT__', dirname(__FILE__));
 define('__SRC__', __ROOT__.'/_src');
 define('__POST__', __ROOT__.'/_post');
@@ -28,27 +30,27 @@ require_once(__SRC__.'/kkoment.php');
 require_once(__SRC__.'/page.php');
 require_once(__SRC__.'/rss.php');
 
-function is_rss($query)
+function is_rss(array $query): bool
 {
     return count($query) === 1 && $query[0] === "rss";
 }
 
-function is_main($query)
+function is_main(array $query): bool
 {
     return count($query) === 0;
 }
 
-function is_category($query)
+function is_category(array $query): bool
 {
     return count($query) === 1;
 }
 
-function is_post($query)
+function is_post(array $query): bool
 {
     return count($query) === 2;
 }
 
-function is_not_safe($query)
+function is_not_safe(array $query): bool
 {
     foreach($query as $s)
     {
@@ -60,7 +62,7 @@ function is_not_safe($query)
     return false;
 }
 
-function route()
+function route(): void
 {
     $query = $_REQUEST['q'];
     $query = preg_split('/\//', $query);

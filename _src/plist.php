@@ -1,19 +1,21 @@
 <?php
+declare(strict_types=1);
+
 namespace plist;
 
-function is_not_draft($p)
+function is_not_draft(string $p): bool
 {
     return basename(dirname($p)) !== 'draft';
 }
 
-function cmp_post($p1, $p2)
+function cmp_post(string $p1, string $p2): int
 {
     $p1 = basename($p1);
     $p2 = basename($p2);
     return strcmp($p2, $p1);
 }
 
-function get_title($p)
+function get_title(string $p): string
 {
     $s = trim(fgets(fopen($p, 'r')));
     if(substr($s, 0, 1) === "#")
@@ -23,7 +25,7 @@ function get_title($p)
     return htmlspecialchars($s);
 }
 
-function echoo($c_selected=null)
+function echoo(?string $c_selected=null): void
 {
     if(is_null($c_selected))
     {
